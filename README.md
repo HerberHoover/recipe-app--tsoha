@@ -19,27 +19,27 @@ RecipeApp is a web application that allows users to manage their favorite recipe
 
 1. Create and activate virtual environment:
 
-python3 -m venv venv
-source venv/bin/activate
+- python3 -m venv venv
+- source venv/bin/activate
 
 
 2. Install dependencies
 
-pip install flask
-pip install Flask-SQLAlchemy
-pip install python-dotenv
-pip install psycopg2-binary
+- pip install flask
+- pip install Flask-SQLAlchemy
+- pip install python-dotenv
+- pip install psycopg2-binary
 
 3. Setup PostgreSQL
 
-sudo apt-get install postgresql postgresql-contrib
-sudo -i -u postgres
-createdb recipe_app_db
+- sudo apt-get install postgresql postgresql-contrib
+- sudo -i -u postgres
+- createdb recipe_app_db
 
 3. Create .env file to project root
 
-SECRET_KEY=<your_secret_key>
-SQLALCHEMY_DATABASE_URI=<your_database_uri>
+- SECRET_KEY=<your_secret_key>
+- SQLALCHEMY_DATABASE_URI=<your_database_uri>
 
 4. Run application
 
