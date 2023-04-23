@@ -29,14 +29,19 @@ def create_tables(app):
                 id SERIAL PRIMARY KEY,
                 recipe_id INTEGER NOT NULL,
                 ingredient VARCHAR(255) NOT NULL,
+                amount INTEGER NOT NULL,
+                unit VARCHAR(50) NOT NULL,
                 FOREIGN KEY (recipe_id) REFERENCES recipes(id)
             );
         """))
 
+
         db.session.execute(text("""
             CREATE TABLE IF NOT EXISTS categories (
                 id SERIAL PRIMARY KEY,
-                name VARCHAR(255) NOT NULL UNIQUE
+                name VARCHAR(255) NOT NULL UNIQUE,
+                user_id INTEGER NOT NULL,
+                FOREIGN KEY (user_id) REFERENCES users(id)
             );
         """))
 
