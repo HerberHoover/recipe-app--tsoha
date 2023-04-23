@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ category.name }}</h1>
+  <ul>
+    {% for recipe in recipes %}
+      <li>
+        <a href="{{ url_for('main.recipe', recipe_id=recipe.id) }}">{{ recipe.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{{ url_for('main.add_recipes_to_category_form', category_id=category.id) }}">Add existing recipes to the category</a>
+{% endblock %}

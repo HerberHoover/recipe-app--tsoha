@@ -4,14 +4,22 @@
     <title>Recipe App</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-   
 </head>
+<body>
 <body>
     <header>
         <h1>Recipe App</h1>
     </header>
 
+    <nav>
+        {% if 'user_id' in session %}
+          <a href="{{ url_for('auth.logout') }}">Logout</a><br>
+          {% if request.endpoint != 'main.home' %}
+            <a href="{{ url_for('main.home') }}">Homepage</a>
+          {% endif %}
+        {% endif %}
+    </nav>
+      
 
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
@@ -25,7 +33,7 @@
 
     <main>
         {% block content %}
-     
+
         {% endblock %}
     </main>
 

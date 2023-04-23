@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ recipe.name }}</h1>
+  <p>{{ recipe.description }}</p>
+  <p>{{ recipe.instructions }}</p>
+  <p>{{ recipe.total_time }} minutes</p>
+
+  <h2>Ingredients</h2>
+    <ul>
+      {% for ingredient in ingredients %}
+          <li>
+              {{ ingredient.amount }} {{ ingredient.unit }} {{ ingredient.ingredient }}
+              <form action="{{ url_for('main.delete_ingredient', ingredient_id=ingredient.id) }}" method="POST" style="display:inline;">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+          </li>
+      {% endfor %}
+  </ul>
+
+  <!-- Add the related categories section -->
+  {% if related_categories %}
+    <h3>Related Categories</h3>
+    <ul>
+      {% for category in related_categories %}
+        <li>{{ category.name }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+
+  <h4>Add Ingredient</h4>
+  <form method="POST" action="{{ url_for('main.add_ingredient', recipe_id=recipe.id) }}">
+    <div>
+      <label for="ingredient">Ingredient:</label>
+      <input type="text" name="ingredient" required>
+    </div>
+    <div>
+      <label for="amount">Amount:</label>
+      <input type="number" name="amount" required>
+    </div>
+    <div>
+      <label for="unit">Unit:</label>
+      <input type="text" name="unit" required>
+    </div>
+    <div>
+      <input type="submit" value="Add Ingredient">
+    </div>
+  </form>
+
+  <div>
+    <form action="{{ url_for('main.edit_recipe', recipe_id=recipe.id) }}" method="GET" style="display:inline;">
+      <button type="submit" class="btn btn-primary">Edit Recipe</button>
+    </form>
+  </div>
+  <div>
+    <form action="{{ url_for('main.delete_recipe', recipe_id=recipe.id) }}" method="POST" style="display:inline;">
+      <button type="submit" class="btn btn-danger">Delete Recipe</button>
+    </form>
+  </div>
+  
+
+{% endblock %}
+
