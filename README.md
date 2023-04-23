@@ -3,17 +3,32 @@
 
 RecipeApp is a web application that allows users to manage their favorite recipes. Users can create, view, update, and delete recipes. They can also search for recipes based on various criteria.
 
-## Main Features
+## Features Completed
+The current state of the application includes the following functionality:
 
-- User registration and authentication
-- Create, read, update, and delete operations for recipes
-- Search for recipes by name, ingredients, or other criteria
-- View individual recipe detail
+User authentication (login, registration, and logout).
+Creation, viewing, and editing of recipes.
+Organizing recipes into categories.
+Viewing recipes by category.
+Adding recipes to categories.
+Basic error handling and user notifications.
+
+## Features Under Construction
+
+
+- Search for recipes by name, ingredients, and other criteria
+- Improving application layout
+- Refactoring main.py
+- Adding tests
+- Adding error handling and exceptions
+- Fixing the Home Screen issue
+- Implementing auto logout functionality
+
 
 ## Prerequisites
 
 - Python 3.x
-- PostgreSQL
+
 
 ## Setting up the virtual environment
 
@@ -25,27 +40,25 @@ RecipeApp is a web application that allows users to manage their favorite recipe
 
 2. Install dependencies
 
-- pip install flask
-- pip install Flask-SQLAlchemy
-- pip install python-dotenv
-- pip install psycopg2-binary
+- pip install -r ./requirements.txt
 
-3. Setup PostgreSQL
-
-- sudo apt-get install postgresql postgresql-contrib
-- sudo -i -u postgres
-- createdb recipe_app_db
 
 3. Create .env file to project root
 
-- SECRET_KEY=<your_secret_key>
-- SQLALCHEMY_DATABASE_URI=<your_database_uri>
+- DATABASE_URL=<local-database-address>
+- SECRET_KEY=<secret-key>
+
 
 4. Run application
 
-python run.py
+- flask run
+
+
+
+Please report any issues or suggestions for improvement on the project's GitHub repository.
+
+
 
 
 PS
-"Registered late, but hoping to still join the course."
-
+" In the process of cleaning up main.py - everything's crammed in there together for "consistency's" sake. "
