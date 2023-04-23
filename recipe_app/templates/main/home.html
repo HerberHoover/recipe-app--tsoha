@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Hello</h1>
-
-    <nav>
-
-        {% if 'user_id' in session %}
-            <a href="{{ url_for('auth.logout') }}">Logout</a>
-        {% endif %}
-    </nav>
-
+    <h1>Recipes</h1>
+    <ul>
+        {% for recipe in recipes %}
+            <li><a href="{{ url_for('main.recipe', recipe_id=recipe.id) }}">{{ recipe.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('main.add_recipe') }}">Add a new recipe</a><br>
+    <a href="{{ url_for('main.categories') }}" class="btn btn-secondary">View categories</a>
 {% endblock %}
+
