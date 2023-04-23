@@ -1,11 +1,9 @@
---- users table
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
     password_hash VARCHAR(255) NOT NULL
 );
 
---- recipes table
 CREATE TABLE recipes (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -15,25 +13,23 @@ CREATE TABLE recipes (
     author_id INTEGER REFERENCES users(id)
 );
 
---- ingredients table
 CREATE TABLE ingredients (
     id SERIAL PRIMARY KEY,
     recipe_id INTEGER NOT NULL,
     ingredient VARCHAR(255) NOT NULL,
+    amount INTEGER NOT NULL,
+    unit VARCHAR(50) NOT NULL,
     FOREIGN KEY (recipe_id) REFERENCES recipes(id)
 );
 
---- categories table
 CREATE TABLE categories (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL UNIQUE
+    name VARCHAR(255) NOT NULL UNIQUE,
+    user_id INTEGER NOT NULL REFERENCES users(id)
 );
 
---- recipes_categories table
 CREATE TABLE recipes_categories (
     id SERIAL PRIMARY KEY,
-    recipe_id INTEGER NOT NULL,
-    category_id INTEGER NOT NULL,
-    FOREIGN KEY (recipe_id) REFERENCES recipes(id),
-    FOREIGN KEY (category_id) REFERENCES categories(id)
+    recipe_id INTEGER NOT NULL REFERENCES recipes(id),
+    category_id INTEGER NOT NULL REFERENCES categories(id)
 );
