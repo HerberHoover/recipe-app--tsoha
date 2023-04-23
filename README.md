@@ -18,7 +18,7 @@ Basic error handling and user notifications.
 
 - Search for recipes by name, ingredients, and other criteria
 - Improving application layout
-- Refactoring main.py
+- Refactoring main.py, improve modularity.
 - Adding tests
 - Adding error handling and exceptions
 - Fixing the Home Screen issue
