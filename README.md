@@ -6,12 +6,12 @@ RecipeApp is a web application that allows users to manage their favorite recipe
 ## Features Completed
 The current state of the application includes the following functionality:
 
-User authentication (login, registration, and logout).
-Creation, viewing, and editing of recipes.
-Organizing recipes into categories.
-Viewing recipes by category.
-Adding recipes to categories.
-Basic error handling and user notifications.
+- User authentication (login, registration, and logout).
+- Creation, viewing, and editing of recipes.
+- Organizing recipes into categories.
+- Viewing recipes by category.
+- Adding recipes to categories.
+- Basic error handling and user notifications.
 
 ## Features Under Construction
 
