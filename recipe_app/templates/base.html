@@ -12,11 +12,13 @@
     </header>
 
     <nav>
-        {% if 'user_id' in session %}
-          <a href="{{ url_for('auth.logout') }}">Logout</a><br>
-          {% if request.endpoint != 'main.home' %}
-            <a href="{{ url_for('main.home') }}">Homepage</a>
-          {% endif %}
+        {% if request.blueprint != 'auth' %}
+            {% if 'user_id' in session %}
+                <a href="{{ url_for('auth.logout') }}">Logout</a><br>
+                {% if request.endpoint != 'main.home' %}
+                    <a href="{{ url_for('main.home') }}">Homepage</a>
+                {% endif %}
+            {% endif %}
         {% endif %}
     </nav>
       
