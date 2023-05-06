@@ -41,13 +41,17 @@ pip install -r ./requirements.txt
 ```
 
 
-3. Create .env file to project root
+3. Create .env file to project root 
+(You need to create a new database for this)
 
 ```bash
-DATABASE_URL=<local-database-address>
+SQLALCHEMY_DATABASE_URI=<local-database-address>
 SECRET_KEY=<secret-key>
 ```
-
+- on mac for example my database address is:
+```bash
+SQLALCHEMY_DATABASE_URI=postgresql://localhost/MY_DATABASE_NAME
+```
 4. Run application
 
 ```bash
