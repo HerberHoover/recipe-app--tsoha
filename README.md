@@ -1,28 +1,17 @@
 # Recipe Application
 
 
-RecipeApp is a web application that allows users to manage their favorite recipes. Users can create, view, update, and delete recipes. They can also search for recipes based on various criteria.
-
-## Features Completed
-The current state of the application includes the following functionality:
-
-- User authentication (login, registration, and logout).
-- Creation, viewing, and editing of recipes.
-- Organizing recipes into categories.
-- Viewing recipes by category.
-- Adding recipes to categories.
-- Basic error handling and user notifications.
-
-## Features Under Construction
+RecipeApp is a web application that allows users to manage their favorite recipes. Featuring an intuitive interface, users can easily create, view, update, and delete recipes. Users can also organize recipes by categories
 
 
-- Search for recipes by name, ingredients, and other criteria
-- Improving application layout
-- Refactoring main.py, improve modularity.
-- Adding tests
-- Adding error handling and exceptions
-- Fixing the Home Screen issue
-- Implementing auto logout functionality
+## Features For Future
+
+
+- Recipe Sharing
+- Implement a search functionality based on recipe names.
+- Allow users to search for recipes using specific ingredients.
+- Enable the use of pre-existing ingredients to search for recipes, possibly through a linked database or integration.
+- Introduce a "Recipe of the Day" notification feature.
 
 
 ## Prerequisites
@@ -34,31 +23,36 @@ The current state of the application includes the following functionality:
 
 1. Create and activate virtual environment:
 
-- python3 -m venv venv
-- source venv/bin/activate
+```bash
+python3 -m venv venv
+```
+
+```bash
+source venv/bin/activate
+```
 
 
 2. Install dependencies
 
-- pip install -r ./requirements.txt
+
+```bash
+pip install -r ./requirements.txt
+```
 
 
 3. Create .env file to project root
 
-- DATABASE_URL=< local-database-address >
-- SECRET_KEY=< secret-key >
-
+```bash
+DATABASE_URL=< local-database-address
+SECRET_KEY=< secret-key >
+```
 
 4. Run application
 
-- flask run
-
+```bash
+flask run
+```
 
 
 Please report any issues or suggestions for improvement on the project's GitHub repository.
 
-
-
-
-PS
-" In the process of cleaning up main.py - everything's crammed in there together for "consistency's" sake. "
