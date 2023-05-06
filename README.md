@@ -5,6 +5,14 @@ RecipeApp is an easy-to-use web application that helps users manage and organize
 
 First you only need to create a user and then you can start saving and categorizing recipes
 
+## Table of Contents
+
+- [Features For Future](#features-for-future)
+- [Prerequisites](#prerequisites)
+- [Setting up the Virtual Environment](#setting-up-the-virtual-environment)
+- [Creating the Database](#creating-the-database)
+- [Running the Application](#running-the-application)
+
 ## Features For Future
 
 
@@ -18,6 +26,7 @@ First you only need to create a user and then you can start saving and categoriz
 ## Prerequisites
 
 - Python 3.x
+- PostgreSQL
 
 
 ## Setting up the virtual environment
@@ -40,19 +49,37 @@ source venv/bin/activate
 pip install -r ./requirements.txt
 ```
 
+## Creating the Database
 
-3. Create .env file to project root 
-(You need to create a new database for this)
+
+You can create a datbase with the following commands:
+
+```bash
+psql
+```
+
+```bash
+CREATE DATABASE MY_DATABASE_NAME;
+```
+
+4. Create .env file to project root 
+
+Replace the placeholders with your actual database connection details and secret key. (You need to create a new database for this)
 
 ```bash
 SQLALCHEMY_DATABASE_URI=<local-database-address>
 SECRET_KEY=<secret-key>
 ```
+You can create a datbase with commands
+
 - on mac for example my database address is:
 ```bash
 SQLALCHEMY_DATABASE_URI=postgresql://localhost/MY_DATABASE_NAME
 ```
-4. Run application
+
+## Running the Application
+
+5. Run application
 
 ```bash
 flask run
