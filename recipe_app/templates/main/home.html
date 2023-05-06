@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Recipes</h1>
-    <ul>
-        {% for recipe in recipes %}
-            <li><a href="{{ url_for('main.recipe', recipe_id=recipe.id) }}">{{ recipe.name }}</a></li>
-        {% endfor %}
-    </ul>
-    <a href="{{ url_for('main.add_recipe') }}">Add a new recipe</a><br>
-    <a href="{{ url_for('main.categories') }}" class="btn btn-secondary">View categories</a>
+    <h1>Home</h1>
+    <hr>
+    <div class="button-container">
+        <a href="{{ url_for('recipes.add_recipe') }}" class="button">Add a new recipe</a>
+        <a href="{{ url_for('categories.add_category', origin='home') }}" class="button">Add a new Category</a>
+        <a href="{{ url_for('recipes.all_recipes') }}" class="button">View all recipes</a>
+        <a href="{{ url_for('categories.all_categories') }}" class="button">View all categories</a>
+    </div>
 {% endblock %}
+
 

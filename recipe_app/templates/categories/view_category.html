@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ category.name }}</h1>
+  <hr>
+  <ul>
+    {% for recipe in recipes %}
+      <li>
+        <a href="{{ url_for('recipes.recipe', recipe_id=recipe.id) }}" class="button">{{ recipe.name }}</a>
+        <form action="{{ url_for('categories.remove_recipe_from_category', category_id=category.id, recipe_id=recipe.id) }}" method="POST" style="display:inline;">
+          <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+          <button type="submit" class="btn btn-danger">Remove from category</button>
+        </form>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{{ url_for('categories.add_recipes_to_category_form', category_id=category.id) }}" class="button" style="margin-bottom: 10px;">Add existing recipes to the category</a><br>
+  <a href="{{ url_for('categories.all_categories') }}" class="button">Back to categories</a>
+{% endblock %}

@@ -4,6 +4,7 @@
     <title>Recipe App</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
 <body>
@@ -12,15 +13,18 @@
     </header>
 
     <nav>
-        {% if request.blueprint != 'auth' %}
-            {% if 'user_id' in session %}
-                <a href="{{ url_for('auth.logout') }}">Logout</a><br>
-                {% if request.endpoint != 'main.home' %}
-                    <a href="{{ url_for('main.home') }}">Homepage</a>
+        <div class="nav-container">
+            {% if request.blueprint != 'auth' %}
+                {% if 'user_id' in session %}
+                    <a href="{{ url_for('auth.logout') }}" class="logout-btn">Logout</a><br>
+                    {% if request.endpoint != 'main.home' %}
+                        <a href="{{ url_for('main.home') }}" class="home-btn">HomePage</a><br>
+                    {% endif %}
                 {% endif %}
             {% endif %}
-        {% endif %}
+        </div>
     </nav>
+    
       
 
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -39,8 +43,6 @@
         {% endblock %}
     </main>
 
-    <footer>
-        <p>Recipe App</p>
-    </footer>
+
 </body>
 </html>

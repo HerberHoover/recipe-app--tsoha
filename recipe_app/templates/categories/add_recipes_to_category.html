@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Add recipes to categories</h1>
+  <hr>
+  {% if all_recipes|length > 0 %}
+    <form action="{{ url_for('categories.add_recipes_to_category', category_id=category_id) }}" method="post">
+      {% for recipe in all_recipes %}
+        <div class="recipe-checkbox">
+          <input type="checkbox" id="recipe-{{ recipe.id }}" name="recipes" value="{{ recipe.id }}">
+          <label for="recipe-{{ recipe.id }}">{{ recipe.name }}</label>
+        </div>
+      {% endfor %}
+      <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+      <input type="submit" value="Add recipes to category">
+    </form>
+  {% else %}
+    <p>There are no more recipes to add to this category.</p>
+  {% endif %}
+  <form action="{{ url_for('categories.view_category', category_id=category_id) }}" method="GET" style="display:inline;">
+    <button type="submit">Back to category</button>
+  </form>
+{% endblock %}

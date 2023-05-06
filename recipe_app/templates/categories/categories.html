@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Categories</h1>
+  <hr>
+  <ul>
+    {% for category in categories %}
+      {% if category.user_id == session.user_id %}
+        <li>
+          <a href="{{ url_for('categories.view_category', category_id=category.id) }}" class="button">{{ category.name }}</a>
+          <form action="{{ url_for('categories.delete_category', category_id=category.id) }}" method="POST" style="display:inline;">
+            <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  <a href="{{ url_for('categories.add_category') }}" class="button">Add Category</a>
+{% endblock %}
+

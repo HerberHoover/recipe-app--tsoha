@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ recipe.name }}</h1>
+  <hr>
+  <p>{{ recipe.description }}</p>
+  <p>{{ recipe.instructions }}</p>
+  <p>{{ recipe.total_time }} minutes</p>
+
+  <h3>Ingredients</h3>
+    <ul>
+      {% for ingredient in ingredients %}
+          <li>
+              {{ ingredient.amount }} {{ ingredient.unit }} {{ ingredient.ingredient }}
+              <form action="{{ url_for('ingredients.delete_ingredient', ingredient_id=ingredient.id) }}" method="POST" style="display:inline;">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+          </li>
+      {% endfor %}
+  </ul>
+
+  {% if related_categories %}
+    <h4>Related Categories</h5>
+    <ul>
+      {% for category in related_categories %}
+        <li>{{ category.name }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+
+  <h4>Add Ingredient</h4>
+  <form method="POST" action="{{ url_for('ingredients.add_ingredient', recipe_id=recipe.id) }}">
+    <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+    <div>
+      <label for="ingredient">Ingredient:</label>
+      <input type="text" name="ingredient" required>
+    </div>
+    <div>
+      <label for="amount">Amount:</label>
+      <input type="number" name="amount" required>
+    </div>
+    <div>
+      <label for="unit">Unit:</label>
+      <input type="text" name="unit" required>
+    </div>
+    <div>
+      <input type="submit" value="Add Ingredient">
+    </div>
+  </form>
+
+  <div>
+    <form action="{{ url_for('recipes.edit_recipe', recipe_id=recipe.id) }}" method="GET" style="display:inline;">
+      <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+      <button type="submit" class="btn btn-primary">Edit Recipe</button>
+    </form>
+  </div>
+  <div>
+    <form action="{{ url_for('recipes.delete_recipe', recipe_id=recipe.id) }}" method="POST" style="display:inline;">
+      <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+      <button type="submit" class="btn btn-danger">Delete Recipe</button>
+    </form>
+  </div>
+  
+
+{% endblock %}
