@@ -3,4 +3,4 @@ __pycache__/
 muistio.txt
 .env
 drop.py
-.DS_Store
+.DS_Store  
