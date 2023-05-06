@@ -1,8 +1,9 @@
 # Recipe Application
 
 
-RecipeApp is a web application that allows users to manage their favorite recipes. Featuring an intuitive interface, users can easily create, view, update, and delete recipes. Users can also organize recipes by categories
+RecipeApp is an easy-to-use web application that helps users manage and organize their favorite recipes. With a simple interface, this app makes it easy to create, view, update, and delete recipes. Users can also sort their recipes into categories, making it quick and convenient to find the right dish for any occasion. 
 
+First you only need to create a user and then you can start saving and categorizing recipes
 
 ## Features For Future
 
