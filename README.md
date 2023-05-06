@@ -81,9 +81,9 @@ SECRET_KEY=<secret-key>
 
 2. Replace the placeholders with your actual database connection details and secret key.
 
-- on mac for example my database address is:
+- on my mac for example the database address is:
 ```bash
-SQLALCHEMY_DATABASE_URI=postgresql://localhost/MY_DATABASE_NAME
+SQLALCHEMY_DATABASE_URI=postgresql://localhost:port/MY_DATABASE_NAME
 ```
 
 ## Running the Application
