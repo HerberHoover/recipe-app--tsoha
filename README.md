@@ -62,6 +62,8 @@ psql
 CREATE DATABASE MY_DATABASE_NAME;
 ```
 
+## Setting up the Environment Variables
+
 4. Create .env file to project root 
 
 Replace the placeholders with your actual database connection details and secret key. (You need to create a new database for this)
@@ -70,7 +72,8 @@ Replace the placeholders with your actual database connection details and secret
 SQLALCHEMY_DATABASE_URI=<local-database-address>
 SECRET_KEY=<secret-key>
 ```
-You can create a datbase with commands
+
+Replace the placeholders with your actual database connection details and secret key.
 
 - on mac for example my database address is:
 ```bash
