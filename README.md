@@ -43,8 +43,8 @@ pip install -r ./requirements.txt
 3. Create .env file to project root
 
 ```bash
-DATABASE_URL=< local-database-address
-SECRET_KEY=< secret-key >
+DATABASE_URL=<local-database-address>
+SECRET_KEY=<secret-key>
 ```
 
 4. Run application
