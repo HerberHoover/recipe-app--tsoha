@@ -64,7 +64,7 @@ CREATE DATABASE MY_DATABASE_NAME;
 
 ## Setting up the Environment Variables
 
-4. Create .env file to project root 
+1. Create .env file to project root 
 
 Replace the placeholders with your actual database connection details and secret key. (You need to create a new database for this)
 
@@ -73,7 +73,7 @@ SQLALCHEMY_DATABASE_URI=<local-database-address>
 SECRET_KEY=<secret-key>
 ```
 
-Replace the placeholders with your actual database connection details and secret key.
+2. Replace the placeholders with your actual database connection details and secret key.
 
 - on mac for example my database address is:
 ```bash
@@ -82,7 +82,7 @@ SQLALCHEMY_DATABASE_URI=postgresql://localhost/MY_DATABASE_NAME
 
 ## Running the Application
 
-5. Run application
+1. Run application
 
 ```bash
 flask run
