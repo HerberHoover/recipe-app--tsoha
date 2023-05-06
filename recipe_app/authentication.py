@@ -2,14 +2,16 @@ from flask import Blueprint, render_template, redirect, request, url_for, flash,
 from werkzeug.security import generate_password_hash, check_password_hash
 from .models import db
 from sqlalchemy import text
+import secrets
 
 auth = Blueprint('auth', __name__)
 
-@auth.route('/login', methods=['GET', 'POST'])
+@auth.route('/', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        session['csrf_token'] = secrets.token_hex(16)
 
         if not username or not password:
             flash('Please fill in all fields.')
@@ -70,5 +72,3 @@ def register():
         return redirect(url_for('auth.login'))
 
     return render_template('auth/register.html')
-
-    
