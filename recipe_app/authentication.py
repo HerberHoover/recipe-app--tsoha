@@ -60,7 +60,7 @@ def register():
             flash('Username already exists.')
             return redirect(url_for('auth.register'))
 
-        hashed_password = generate_password_hash(password, method='sha256')
+        hashed_password = generate_password_hash(password, method='scrypt')
         query = text("""
         INSERT INTO users (username, password_hash) 
         VALUES (:username, :password_hash);
