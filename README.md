@@ -31,7 +31,13 @@ First you only need to create a user and then you can start saving and categoriz
 
 ## Setting up the virtual environment
 
-1. Create and activate virtual environment:
+1. Navigate to the root folder of the project:
+
+```bash
+cd recipe-app-tsoha
+```
+
+2. Create and activate virtual environment:
 
 ```bash
 python3 -m venv venv
@@ -42,7 +48,7 @@ source venv/bin/activate
 ```
 
 
-2. Install dependencies
+3. Install dependencies
 
 
 ```bash
