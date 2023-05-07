@@ -2,9 +2,7 @@ from flask import Blueprint, render_template, redirect, request, url_for, flash,
 from .models import db
 from sqlalchemy import text
 
-
 ingredients = Blueprint('ingredients', __name__)
-
 
 @ingredients.route('/recipe/<int:recipe_id>/add_ingredient', methods=['GET', 'POST'])
 def add_ingredient(recipe_id):
@@ -23,7 +21,6 @@ def add_ingredient(recipe_id):
         db.session.commit()
 
         return redirect(url_for('recipes.recipe', recipe_id=recipe_id))
-
 
 @ingredients.route('/ingredient/<int:ingredient_id>/delete', methods=['POST'])
 def delete_ingredient(ingredient_id):

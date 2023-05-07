@@ -6,7 +6,6 @@ from sqlalchemy import text
 
 categories = Blueprint('categories', __name__)
 
-
 @categories.route('/categories')
 def all_categories():
     if 'user_id' not in session:
@@ -17,7 +16,6 @@ def all_categories():
     categories = result.fetchall()
 
     return render_template('categories/categories.html', categories=categories)
-
 
 @categories.route('/category/<int:category_id>')
 def view_category(category_id):
@@ -43,7 +41,6 @@ def view_category(category_id):
     recipes = recipe_result.fetchall()
 
     return render_template('categories/view_category.html', category=category, recipes=recipes)
-
 
 @categories.route('/add_category', methods=['GET', 'POST'])
 @categories.route('/add_category/<origin>', methods=['GET', 'POST'])
@@ -81,7 +78,6 @@ def delete_category(category_id):
     flash('Category deleted successfully!', category='success')
     return redirect(url_for('categories.all_categories'))
 
-
 @categories.route('/recipe/<int:recipe_id>/update_categories', methods=['POST'])
 def update_recipe_categories(recipe_id):
     if 'user_id' not in session:
@@ -99,7 +95,6 @@ def update_recipe_categories(recipe_id):
 
     flash('Categories updated successfully!', category='success')
     return redirect(url_for('recipes.recipe', recipe_id=recipe_id))
-
 
 @categories.route('/category/<int:category_id>/add_recipes', methods=['POST'])
 def add_recipes_to_category(category_id):
@@ -141,7 +136,6 @@ def remove_recipe_from_category(category_id, recipe_id):
 
     flash('Recipe removed from category successfully!', category='success')
     return redirect(url_for('categories.view_category', category_id=category_id))
-
 
 @categories.route('/category/<int:category_id>/add_recipes_form')
 def add_recipes_to_category_form(category_id):

@@ -2,7 +2,6 @@ from flask import Blueprint, render_template, redirect, request, url_for, flash,
 from .models import db
 from sqlalchemy import text
 
-
 recipes = Blueprint('recipes', __name__)
 
 @recipes.route('/recipes')
@@ -44,8 +43,6 @@ def add_recipe():
 
     return render_template('recipes/add_recipe.html')
 
-
-
 @recipes.route('/recipe/<int:recipe_id>')
 def recipe(recipe_id):
     if 'user_id' not in session:
@@ -69,7 +66,6 @@ def recipe(recipe_id):
 
     return render_template('recipes/recipe.html', recipe=recipe, ingredients=ingredients, related_categories=related_categories)
 
-
 @recipes.route('/recipe/<int:recipe_id>/edit', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
     if 'user_id' not in session:
@@ -90,12 +86,10 @@ def edit_recipe(recipe_id):
         flash('Recipe updated successfully!', category='success')
         return redirect(url_for('recipes.recipe', recipe_id=recipe_id))
 
-
     query = text("SELECT * FROM recipes WHERE id=:recipe_id;")
     result = db.session.execute(query, {"recipe_id": recipe_id})
     recipe = result.fetchone()
     return render_template('recipes/edit_recipe.html', recipe=recipe)
-
 
 @recipes.route('/recipe/<int:recipe_id>/delete', methods=['POST'])
 def delete_recipe(recipe_id):
