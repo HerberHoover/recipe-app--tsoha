@@ -26,9 +26,9 @@ https://recipe-application-tsoha.fly.dev/
 - Recipe Sharing
 - Implement a search functionality based on recipe names.
 - Allow users to search for recipes using specific ingredients.
-- Enable the use of pre-existing ingredients to search for recipes, possibly through a linked database or integration.
+- Enable the use of pre-existing ingredients to search for recipes
 - Introduce a "Recipe of the Day" feature.
-
+- Shopping Cart feature
 
 ## To test or Use the application locally
 
