@@ -5,6 +5,13 @@ RecipeApp is an easy-to-use web application that helps users manage and organize
 
 First you only need to create a user and then you can start saving and categorizing recipes
 
+## Link to website
+
+The project should be reachable through this link also:
+
+https://recipe-application-tsoha.fly.dev/
+
+
 ## Table of Contents
 
 - [Features For Future](#features-for-future)
@@ -20,10 +27,12 @@ First you only need to create a user and then you can start saving and categoriz
 - Implement a search functionality based on recipe names.
 - Allow users to search for recipes using specific ingredients.
 - Enable the use of pre-existing ingredients to search for recipes, possibly through a linked database or integration.
-- Introduce a "Recipe of the Day" notification feature.
+- Introduce a "Recipe of the Day" feature.
 
 
-## Prerequisites
+## To test or Use the application locally
+
+### Prerequisites
 
 - Python 3.x
 - PostgreSQL
@@ -81,7 +90,7 @@ SECRET_KEY=<secret-key>
 
 2. Replace the placeholders with your actual database connection details and secret key.
 
-- on my mac for example the database address is:
+- on mac for example my database address is:
 ```bash
 SQLALCHEMY_DATABASE_URI=postgresql://localhost:port/MY_DATABASE_NAME
 ```
@@ -93,7 +102,6 @@ SQLALCHEMY_DATABASE_URI=postgresql://localhost:port/MY_DATABASE_NAME
 ```bash
 flask run
 ```
-
 
 Please report any issues or suggestions for improvement on the project's GitHub repository.
 
