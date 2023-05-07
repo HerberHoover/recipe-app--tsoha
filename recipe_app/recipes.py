@@ -10,8 +10,9 @@ def all_recipes():
     if 'user_id' not in session:
         return redirect(url_for('auth.login'))
         
-    query = text("SELECT * FROM recipes;")
-    result = db.session.execute(query)
+    user_id = session['user_id']
+    query = text("SELECT * FROM recipes WHERE author_id=:user_id;")
+    result = db.session.execute(query, {"user_id": user_id})
     recipes = result.fetchall()
     return render_template('recipes/all_recipes.html', recipes=recipes)
 
