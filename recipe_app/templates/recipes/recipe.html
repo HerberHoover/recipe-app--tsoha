@@ -13,8 +13,9 @@
           <li>
               {{ ingredient.amount }} {{ ingredient.unit }} {{ ingredient.ingredient }}
               <form action="{{ url_for('ingredients.delete_ingredient', ingredient_id=ingredient.id) }}" method="POST" style="display:inline;">
+                <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
                 <button type="submit" class="btn btn-danger">Delete</button>
-              </form>
+            </form>
           </li>
       {% endfor %}
   </ul>
